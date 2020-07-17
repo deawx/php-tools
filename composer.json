@@ -10,14 +10,14 @@
       "role": "Developer"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.1.*",
     "ext-json": "*"
   },
   "autoload": {
     "psr-4": {
       "phpTools\\": "src/"
-    }
+    },
+    "license": "MIT"
   }
 }

@@ -1,0 +1,114 @@
+<?php
+/**
+ * @Description:
+ * @Author: Mr.LiuQHui
+ * @Date: 2020/7/17 1:54 下午
+ */
+
+
+namespace phpTools;
+
+
+/**
+ * @Description: 数组相关的操作
+ * @Class ArrayTools
+ * @Package phpTools
+ */
+class ArrayTools
+{
+
+    /**
+     * @description: 对象转数组
+     * @param $object
+     * @return mixed
+     * @autor Mr.LiuQHui
+     */
+    public static function object2array($object)
+    {
+        return json_decode(json_encode($object), true);
+    }
+
+
+    /**
+     * @description: xml转为数组
+     * @param $xml
+     * @return bool|mixed
+     * @autor Mr.LiuQHui
+     */
+    public static function xml2Array($xml)
+    {
+        $result = json_decode(
+            json_encode(simplexml_load_string(
+                trim($xml, ' '),
+                'SimpleXMLElement',
+                LIBXML_NOCDATA
+            )),
+            true
+        );
+        if (!$result) {
+            return false;
+        }
+        $isArray = false;
+        foreach ($result as $_val) {
+            if (is_array($_val)) {
+                $isArray = true;
+            }
+            break;
+        }
+        if ($isArray) {
+            $result = array_values($result);
+            if (isset($result[0][0])) {
+                $infos = $result[0];
+            } else {
+                $infos = $result;
+            }
+        } else {
+            $infos[] = $result;
+        }
+
+        foreach ($infos as &$_val) {
+            foreach ($_val as $key => &$item) {
+                if (self::isEmpty($item)) {
+                    $item = '';
+                }
+            }
+        }
+        return $infos;
+    }
+    /**
+     * 一维数组转为二维
+     *
+     * @param array $array
+     *
+     * @return array
+     */
+    public static function arrayToArrays(array $array)
+    {
+        if (!is_array($array)) {
+            return $array;
+        }
+        if (!isset($array[0])) {
+            $arrays[] = $array;
+        } else {
+            $arrays = $array;
+        }
+        return $arrays;
+    }
+
+    /**
+     * @description: 多维数组根据某个key,进行排序
+     * @param $data
+     * @param $sortKey
+     * @param int $sortType // SORT_DESC SORT_ASC |SORT_DESC
+     * @return mixed
+     * @autor Mr.LiuQHui
+     */
+    public static function arraySortByKey($data, $sortKey, $sortType = SORT_DESC)
+    {
+        foreach ($data as $key => $row) {
+            $sortKeyArray[$key] = $row[$sortKey];
+        }
+        array_multisort($sortKeyArray, $sortType);
+        return $data;
+    }
+}

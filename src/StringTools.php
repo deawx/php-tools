@@ -7,7 +7,7 @@
 
 namespace phpTools;
 /**
- * @Description:
+ * @Description: 字符串相关操作
  * @Class StringTools
  * @Package phpTools
  */
@@ -30,5 +30,21 @@ class StringTools
             return mb_strlen($str, $encoding);
         }
         return strlen($str);
+    }
+    /**
+     * 清除非法编码
+     * @param $pattern
+     * @return mixed
+     */
+    public static function cleanNonUnicodeSupport($pattern)
+    {
+        if (!defined('PREG_BAD_UTF8_OFFSET')) {
+            return $pattern;
+        }
+        return preg_replace(
+            '/\\\[px]\{[a-z]\}{1,2}|(\/[a-z]*)u([a-z]*)$/i',
+            "$1$2",
+            $pattern
+        );
     }
 }
