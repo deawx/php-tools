@@ -1,0 +1,23 @@
+{
+  "name": "52lu/phptools",
+  "description": "收集PHP开发工程中经常用到的轮子，避免二次开发",
+  "homepage": "https://github.com/52lu/php-tools.git",
+  "authors": [
+    {
+      "name": "qinghui",
+      "email": "liuqinghui1991@163.com",
+      "homepage": "https://52lu.github.io",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "phpTools\\": "src/"
+    }
+  }
+}
