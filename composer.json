@@ -2,6 +2,7 @@
   "name": "52lu/phptools",
   "description": "收集PHP开发工程中经常用到的轮子，避免二次开发",
   "homepage": "https://github.com/52lu/php-tools",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "qinghui",

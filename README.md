@@ -26,3 +26,10 @@ composer require 52lu/phptools
     ├── StringTools.php    字符串相关方法
     └── ValidateTools.php  验证相关方法
 ```
+
+
+## 代码测试
+```sh
+cd tests
+php ***.php
+```
