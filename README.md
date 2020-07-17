@@ -11,3 +11,18 @@ php >= 7.1
 ```shell script
 composer require 52lu/phptools
 ```
+## 文件介绍
+```sh
+├── README.md
+├── composer.json
+└── src
+    ├── ArrayTools.php     数组相关方法
+    ├── ComputeTools.php   计算相关方法
+    ├── DateTools.php      日期相关方法
+    ├── DecideTools.php    判断相关方法
+    ├── FileTools.php      文件相关方法
+    ├── HttpTools.php      http相关方法
+    ├── NumberTools.php    数字相关方法
+    ├── StringTools.php    字符串相关方法
+    └── ValidateTools.php  验证相关方法
+```
