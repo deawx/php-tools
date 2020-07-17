@@ -11,5 +11,3 @@ php >= 7.1
 ```shell script
 composer require 52lu/phptools
 ```
-
-## 支持
