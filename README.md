@@ -26,6 +26,7 @@ composer require 52lu/phptools
 | src/StringTools.php     | 字符串相关方法 |
 | src/ValidateTools.php   | 验证相关方法 |
 | src/client/RedisClient.php  |  连接redis客户端 |
+| src/EncryptTools.php  |  加解密类 |
 
 
 ## 代码测试
