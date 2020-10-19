@@ -134,4 +134,19 @@ class DateTools
         $tmp['s'] = $interval->format('%s');
         return $tmp;
     }
+
+    /**
+     * description: 获取当前日期所在的星期一和星期日
+     * @param $date
+     * @return array
+     * @author: Mr.LiuQHui
+     */
+    public static function getWeekRange($date)
+    {
+        $timestamp = strtotime($date);
+        $w=strftime('%u',$timestamp);
+        $monday = date('Y-m-d',$timestamp-($w-1) * 86400);
+        $sunday = date('Y-m-d',$timestamp+(7-$w) * 86400);
+        return [$monday,$sunday];
+    }
 }
