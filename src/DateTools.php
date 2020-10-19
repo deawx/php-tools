@@ -149,4 +149,18 @@ class DateTools
         $sunday = date('Y-m-d',$timestamp+(7-$w) * 86400);
         return [$monday,$sunday];
     }
+
+    /**
+     * description: 获取当前日期所在的月末和月初
+     * @param $date
+     * @return array
+     * @author: Mr.LiuQHui
+     */
+    public static function getMonthRange($date)
+    {
+        $timestamp = strtotime($date);
+        $firstDay = date('Y-m-01',$timestamp);
+        $lastDay = date('Y-m-'.date('t',$timestamp),$timestamp);
+        return [$firstDay,$lastDay];
+    }
 }
