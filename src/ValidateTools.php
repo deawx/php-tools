@@ -340,6 +340,12 @@ class ValidateTools
         if (strlen($idcard_base) != 17) {
             return false;
         }
+        // 校验生日
+        $birthday = substr($idcard_base, 6, 8);
+        if (strtotime($birthday) === false) {
+            // 230603199407361234 这个身份证就能校验通过，但是生日不正确
+            return false;
+        }
         //加权因子
         $factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
         //校验码对应值
