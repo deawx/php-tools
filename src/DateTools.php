@@ -163,4 +163,40 @@ class DateTools
         $lastDay = date('Y-m-'.date('t',$timestamp),$timestamp);
         return [$firstDay,$lastDay];
     }
+
+    /**
+     * description: 美化时间
+     * @param $time
+     * @return false|string
+     * @author: Mr.LiuQHui
+     */
+    public function beautyTime($time)
+    {
+        $todayLast = strtotime(date('Y-m-d').' 23:59:59');
+        $agoTimeTrue = time() - $time;
+        $agoTime = $todayLast - $time;
+        $agoDay = floor($agoTime / 86400);
+        $tomorrow = date('Y-m-d',strtotime("+1 day"));
+        $timeDate = date('Y-m-d',$time);
+        if ($agoTimeTrue < 60) {
+            $res = '刚刚';
+        }elseif ($agoTimeTrue < 3600) {
+            $res = (ceil($agoTimeTrue / 60)).'分钟前';
+        }elseif ($agoTimeTrue < (3600 * 12)) {
+            $res = (ceil($agoTimeTrue / 3600)).'小时前';
+        }elseif ($agoDay == 0) {
+            $res = '今天 '.date('H:i',$time);
+        }elseif ($agoDay == 1) {
+            $res = '昨天 '.date('H:i',$time);
+        }elseif ($agoDay == 2) {
+            $res = '前天 '.date('H:i',$time);
+        }elseif (($agoDay > 2) && ($agoDay < 16)) {
+            $res = $agoDay.'天前'.date('H:i',$time);
+        }elseif($tomorrow == $timeDate){
+            $res = '明天 '.date('H:i',$time);
+        }else{
+            $res = date('Y-m-d H:i:s',$time);
+        }
+        return $res;
+    }
 }
