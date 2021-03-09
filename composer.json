@@ -1,13 +1,13 @@
 {
   "name": "52lu/phptools",
   "description": "收集PHP开发工程中经常用到的轮子，避免二次开发",
-  "homepage": "https://github.com/52lu/php-tools",
+  "homepage": "https://packagist.org/packages/52lu/phptools",
   "minimum-stability": "stable",
   "authors": [
     {
       "name": "qinghui",
       "email": "liuqinghui1991@163.com",
-      "homepage": "https://52lu.github.io",
+      "homepage": "https://github.com/52lu/php-tools",
       "role": "Developer"
     }
   ],
