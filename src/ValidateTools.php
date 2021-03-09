@@ -21,7 +21,8 @@ class ValidateTools
      * @param $email
      * @return bool
      */
-    function is_email($email){
+    function is_email($email)
+    {
         return filter_var($email, FILTER_VALIDATE_EMAIL) ? true : false;
     }
 
@@ -175,7 +176,7 @@ class ValidateTools
         if ($time === false) {
             return false;
         }
-        $datetime = date('Y-m-d H:i:s',$time);
+        $datetime = date('Y-m-d H:i:s', $time);
         return (bool)preg_match('/^([0-9]{4})-((0?[0-9])|(1[0-2]))-((0?[0-9])|([1-2][0-9])|(3[01]))( [0-9]{2}:[0-9]{2}:[0-9]{2})?$/',
             $datetime);
     }
@@ -202,10 +203,10 @@ class ValidateTools
      */
     public static function isBirthDate($date)
     {
-        if (!self::isDate($date)){
+        if (!self::isDate($date)) {
             return false;
         }
-        $date = date('Y-m-d',strtotime($date));
+        $date = date('Y-m-d', strtotime($date));
         if (empty($date) || $date == '0000-00-00') {
             return true;
         }
@@ -282,7 +283,6 @@ class ValidateTools
         }
         return false;
     }
-
 
 
     /**
@@ -396,6 +396,7 @@ class ValidateTools
         $idcard = $idcard . self::idcard_verify_number($idcard);
         return $idcard;
     }
+
     /**
      *  Functional description : 解析正确就返回解析结果,否则返回false,说明字符串不是XML格式
      *
@@ -414,16 +415,37 @@ class ValidateTools
                 true));
         }
     }
+
     /**
      * 正则验证密码强度（小于6位，强度为1）
      * 密码字符包括：小写字母、大写字母、数字、符号等
      * @param string $pass 密码
      * @return number 可能为：无0、弱1、中2、3强、4很强
      */
-    function checkPwdSecurity($pass){
+    public static function checkPwdSecurity($pass)
+    {
         $pattern = '/^(?:([a-z])|([A-Z])|([0-9])|(.)){6,}|(.)+$/';
         $replacement = '$1$2$3$4$5';
         return strlen(preg_replace($pattern, $replacement, $pass));
     }
+
+    /**
+     * description: 判断是否是合法的图片url
+     * @param $imgUrl
+     * @return bool
+     * @author: Mr.LiuQHui
+     */
+    public static function isImgUrl($imgUrl)
+    {
+        if (!ValidateTools::isUrl($imgUrl)){
+            return false;
+        }
+        $imgInfo = get_headers($imgUrl,1);
+        if (strpos($imgInfo[0],'200 OK') !== false && strpos($imgInfo['Content-Type'],'image') !==false ){
+            return true;
+        }
+        return false;
+    }
+
 
 }
