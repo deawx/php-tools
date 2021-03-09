@@ -126,7 +126,7 @@ class HttpTools
      * @param      $requestList
      * @param null $proxy
      * @param null $proxyPort
-     * @param null $header
+     * @param null $header $header = array('Content-type: application/json');
      * @param int $timeout
      *
      * @return array
@@ -313,5 +313,37 @@ class HttpTools
         curl_close($ch);
 
         return $response;
+    }
+
+
+    /**
+     * description: 发起Post请求
+     * @param $url
+     * @param null $postFields ['key'=>val]
+     * @param null $header  array('Content-type: application/json');
+     * @param null $proxy
+     * @param null $proxyPort
+     * @return mixed
+     * @throws Exception
+     * @author: Mr.LiuQHui
+     */
+    public static function post($url, $postFields = null, $header = null, $proxy = null, $proxyPort = null)
+    {
+        return self::curl($url,'POST',$postFields,$proxy,$proxyPort,$header);
+    }
+    /**
+     * description: 发起Get请求
+     * @param $url
+     * @param null $postFields ['key'=>val]
+     * @param null $header  array('Content-type: application/json');
+     * @param null $proxy
+     * @param null $proxyPort
+     * @return mixed
+     * @throws Exception
+     * @author: Mr.LiuQHui
+     */
+    public static function get($url, $postFields = null, $header = null, $proxy = null, $proxyPort = null)
+    {
+        return self::curl($url,'GET',$postFields,$proxy,$proxyPort,$header);
     }
 }
