@@ -7,7 +7,7 @@ imagefill($image,0,0,$bgcolor);
 
 //创建汉字验证码
 $fontface = 'msyh.ttf';
-$str = "谭晓珊你要加油你是最棒的努力成为自己心目中的那个人";
+$str = "你要加油你是最棒的努力成为自己心目中的那个人";
 $strdb = str_split($str,3);
 /*header('content-type:text/html; charset=utf-8');
 var_dump($strdb);
