@@ -1,28 +1,17 @@
 {
-  "name": "shershon1991/library",
+  "name": "shershon1991/php-tools",
   "description": "收集PHP开发工程中经常用到的轮子，避免二次开发",
   "minimum-stability": "stable",
   "authors": [
     {
       "name": "Shershon",
       "email": "18810877074@163.com",
-      "homepage": "https://github.com/shershon1991/library",
+      "homepage": "https://github.com/shershon1991/php-tools",
       "role": "Developer"
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "ext-json": "*",
-    "ext-curl": "*",
-    "ext-xml": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "phpTools\\": "src/"
-    }
+    "php": ">=7.0",
   },
   "license": "MIT",
-  "require-dev": {
-    "phpunit/phpunit": "^8.5"
-  }
 }
