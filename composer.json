@@ -1,12 +1,12 @@
 {
-  "name": "Shershon1991/library",
+  "name": "shershon1991/library",
   "description": "收集PHP开发工程中经常用到的轮子，避免二次开发",
   "minimum-stability": "stable",
   "authors": [
     {
       "name": "Shershon",
       "email": "18810877074@163.com",
-      "homepage": "https://github.com/Shershon1991/library",
+      "homepage": "https://github.com/shershon1991/library",
       "role": "Developer"
     }
   ],
