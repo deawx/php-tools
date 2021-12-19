@@ -1,7 +1,7 @@
 {
   "name": "tanxiaoshan/library",
   "description": "收集PHP开发工程中经常用到的轮子，避免二次开发",
-  "homepage": "",
+  "homepage": "https://packagist.org/packages/52lu/phptools",
   "minimum-stability": "stable",
   "authors": [
     {
