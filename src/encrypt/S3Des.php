@@ -57,7 +57,7 @@ class S3Des
      */
     private static function pkcs5_unpad($text)
     {
-        $pad = ord($text{strlen($text) - 1});
+        $pad = ord($text[strlen($text) - 1]);
         if ($pad > strlen($text)) {
             return false;
         }

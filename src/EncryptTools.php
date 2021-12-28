@@ -11,6 +11,7 @@ namespace phpTools;
 
 use phpTools\encrypt\Aes;
 use phpTools\encrypt\S3Des;
+use phpTools\encrypt\Rsa;
 
 /**
  * @Description: 轻量级加解密
@@ -49,7 +50,7 @@ class EncryptTools
      * @param $iv string   偏移量
      * @return bool|mixed|string
      */
-    public static function encrypt($body, $type, $key,$modeType=self::MODE_AES_ECB,$iv="")
+    public static function encrypt($body, $type, $key, $modeType = self::MODE_AES_ECB, $iv = "")
     {
         switch ($type) {
             case self::STD3DES:
@@ -75,18 +76,57 @@ class EncryptTools
      * @param $iv string   偏移量
      * @return bool|mixed|string
      */
-    public static function decrypt($body, $type, $key,$modeType=self::MODE_AES_ECB,$iv="")
+    public static function decrypt($body, $type, $key, $modeType = self::MODE_AES_ECB, $iv = "")
     {
         switch ($type) {
             case self::STD3DES:
                 $bodyRet = S3Des::decrypt($key, $body);
                 break;
             case self::AES:
-                $bodyRet = Aes::decrypt($key, $body,$modeType,$iv);
+                $bodyRet = Aes::decrypt($key, $body, $modeType, $iv);
                 break;
             default:
                 return $body;
         }
         return $bodyRet;
+    }
+
+    /**
+     * Brief: RSA加密
+     * Author: Shershon(tanxiaoshan@weimiao.cn)
+     * DateTime: 2021/12/28 下午1:58
+     * @param $body
+     * @param $encrypt
+     * @param $publicKey
+     */
+    public static function rsaEncrypt($body, &$encrypt, $publicKey)
+    {
+        Rsa::openssl_public_encrypt($body, $encrypt, $publicKey);
+    }
+
+    /**
+     * Brief: RSA解密
+     * Author: Shershon(tanxiaoshan@weimiao.cn)
+     * DateTime: 2021/12/28 下午1:58
+     * @param $body
+     * @param $decrypt
+     * @param $privateKey
+     */
+    public static function rsaDecrypt($body, &$decrypt, $privateKey)
+    {
+        Rsa::openssl_private_decrypt($body, $decrypt, $privateKey);
+    }
+
+    /**
+     * Brief: 生成签名
+     * Author: Shershon(tanxiaoshan@weimiao.cn)
+     * DateTime: 2021/12/28 上午9:15
+     */
+    public static function getSign($params, $secretKey)
+    {
+        ksort($params);
+        $q = http_build_query($params);
+        $q .= $secretKey;
+        return md5($q);
     }
 }
