@@ -73,10 +73,10 @@ class HttpTools
     /**
      * @description: 并发请求
      * @param $requestList
-      $requestList=[
-            ['url'=>'','method'=>'POST','param'=>[]],
-            ['url'=>'','method'=>'GET','param'=>[]]
-    ];
+     * $requestList=[
+     * ['url'=>'','method'=>'POST','param'=>[]],
+     * ['url'=>'','method'=>'GET','param'=>[]]
+     * ];
      * @param null $proxy
      * @param null $proxyPort
      * @param null $header
@@ -320,7 +320,7 @@ class HttpTools
      * description: 发起Post请求
      * @param $url
      * @param null $postFields ['key'=>val]
-     * @param null $header  array('Content-type: application/json');
+     * @param null $header array('Content-type: application/json');
      * @param null $proxy
      * @param null $proxyPort
      * @return mixed
@@ -329,13 +329,14 @@ class HttpTools
      */
     public static function post($url, $postFields = null, $header = null, $proxy = null, $proxyPort = null)
     {
-        return self::curl($url,'POST',$postFields,$proxy,$proxyPort,$header);
+        return self::curl($url, 'POST', $postFields, $proxy, $proxyPort, $header);
     }
+
     /**
      * description: 发起Get请求
      * @param $url
      * @param null $postFields ['key'=>val]
-     * @param null $header  array('Content-type: application/json');
+     * @param null $header array('Content-type: application/json');
      * @param null $proxy
      * @param null $proxyPort
      * @return mixed
@@ -344,6 +345,6 @@ class HttpTools
      */
     public static function get($url, $postFields = null, $header = null, $proxy = null, $proxyPort = null)
     {
-        return self::curl($url,'GET',$postFields,$proxy,$proxyPort,$header);
+        return self::curl($url, 'GET', $postFields, $proxy, $proxyPort, $header);
     }
 }

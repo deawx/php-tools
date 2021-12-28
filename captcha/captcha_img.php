@@ -10,11 +10,11 @@ $table = array(
     'pic4' => '狗',
 );
 
-$index = rand(0,4);
-$value = $table['pic'.$index];
+$index = rand(0, 4);
+$value = $table['pic' . $index];
 $_SESSION['authcode'] = $value;
 
-$filename = dirname(__FILE__).'/pic'.$index.'.jpg';
+$filename = dirname(__FILE__) . '/pic' . $index . '.jpg';
 $contents = file_get_contents($filename);
 
 header('content-type:image/jpeg');

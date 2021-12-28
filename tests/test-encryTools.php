@@ -57,9 +57,9 @@ $sign = EncryptTools::getSign($params, $secretKey);
 $queryString .= "&sign=" . $sign;
 
 $encrypt = '';
-EncryptTools::rsaEncrypt($queryString,$encrypt, $publicKey);
+EncryptTools::rsaEncrypt($queryString, $encrypt, $publicKey);
 $encrypt = urlencode($encrypt);
-$url .=  "q=" . $encrypt;
+$url .= "q=" . $encrypt;
 
 $decrypt = '';
 $queryStr = parse_url($url)['query'];
@@ -69,7 +69,7 @@ parse_str($decrypt, $params);
 $paramSign = $params['sign'];
 unset($params['sign']);
 $sign = EncryptTools::getSign($params, $secretKey);
-if($sign != $paramSign) {
+if ($sign != $paramSign) {
     echo 'error.';
 } else {
     echo 'success.';

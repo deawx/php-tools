@@ -119,7 +119,8 @@ class FileTools
         $fileName,
         $baseStr,
         $logPath
-    ) {
+    )
+    {
         //首先判断目录是否存在,不存在则创建;
         if (!is_dir($logPath)) {
             self::mkdirs($logPath);

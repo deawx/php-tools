@@ -64,7 +64,7 @@ class RedisClient
      * @throws \Exception
      * @autor Mr.LiuQHui
      */
-    public static function getInstance($config) : \Redis
+    public static function getInstance($config): \Redis
     {
         if (!extension_loaded('redis')) {
             throw new Exception('redis扩展未安装');
@@ -93,7 +93,7 @@ class RedisClient
             //连接
             self::$_client[$instanceKey]->$connectType($config['host'], $config['port'], $config['timeout']);
             //如果有验证
-            if (!empty($config['password'])){
+            if (!empty($config['password'])) {
                 if ($password = $config['password']) {
                     $redis->auth($password);
                 }

@@ -31,6 +31,7 @@ class StringTools
         }
         return strlen($str);
     }
+
     /**
      * 清除非法编码
      * @param $pattern

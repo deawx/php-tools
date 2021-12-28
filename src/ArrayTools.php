@@ -75,6 +75,7 @@ class ArrayTools
         }
         return $infos;
     }
+
     /**
      * 一维数组转为二维
      *

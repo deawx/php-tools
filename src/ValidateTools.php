@@ -437,11 +437,11 @@ class ValidateTools
      */
     public static function isImgUrl($imgUrl)
     {
-        if (!ValidateTools::isUrl($imgUrl)){
+        if (!ValidateTools::isUrl($imgUrl)) {
             return false;
         }
-        $imgInfo = get_headers($imgUrl,1);
-        if (strpos($imgInfo[0],'200 OK') !== false && strpos($imgInfo['Content-Type'],'image') !==false ){
+        $imgInfo = get_headers($imgUrl, 1);
+        if (strpos($imgInfo[0], '200 OK') !== false && strpos($imgInfo['Content-Type'], 'image') !== false) {
             return true;
         }
         return false;
