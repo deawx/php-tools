@@ -6,12 +6,9 @@ $bgcolor = imagecolorallocate($image, 255, 255, 255);
 imagefill($image, 0, 0, $bgcolor);
 
 //创建汉字验证码
-$fontface = 'msyh.ttf';
+$fontface = __DIR__ . '/msyh.ttf';
 $str = "你要加油你是最棒的努力成为自己心目中的那个人";
 $strdb = str_split($str, 3);
-/*header('content-type:text/html; charset=utf-8');
-var_dump($strdb);
-exit();*/
 
 $captch_code = '';
 for ($i = 0; $i < 4; $i++) {
@@ -38,5 +35,6 @@ for ($i = 0; $i < 3; $i++) {
 }
 
 header('content-type:image/png');
-imagepng($image);
+//imagepng($image);
+imagepng($image, __DIR__ . '/captcha_cn.png');
 imagedestroy($image);

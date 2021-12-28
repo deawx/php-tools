@@ -1,12 +1,14 @@
 <?php
-header("Content-Type:text/html;charset=utf-8");
 
-class Image
+namespace phpTools;
+
+class ImageTools
 {
     /**
      * 内存中的图片
      */
     private $image;
+
     /**
      * 图片的基本信息
      */

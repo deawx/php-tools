@@ -46,5 +46,6 @@ for ($i = 0; $i < 3; $i++) {
 }
 
 header('content-type:image/png');
-imagepng($image);
+//imagepng($image);
+imagepng($image, __DIR__ . '/captcha.png');
 imagedestroy($image);
