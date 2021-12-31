@@ -112,4 +112,35 @@ class ArrayTools
         array_multisort($sortKeyArray, $sortType);
         return $data;
     }
+
+    /**
+     * Desc: 多维数组，过滤指定key为空的元素
+     * Author: Shershon(tanxiaoshan@weimiao.cn)
+     * DateTime: 2021/12/31 上午11:42
+     * @param $data
+     * @param $key
+     * @return array
+     */
+    public static function arrayFilterByEmptyKey($data, $key)
+    {
+        $ret = [];
+        foreach($data as $v1) {
+            $tmp = [];
+            foreach($v1 as $v2) {
+                if(!empty($v2[$key])){
+                    $tmp[] = $v2;
+                }
+            }
+            /*array_map(function($v2) use(&$tmp, $key){
+                if(!empty($v2[$key])) {
+                    $tmp[] = $v2;
+                }
+            }, $v1);*/
+            /*$tmp = array_filter($v1, function($v2) use($key){
+                return !empty($v2[$key]);
+            });*/
+            !empty($tmp) && $ret[] = $tmp;
+        }
+        return $ret;
+    }
 }
