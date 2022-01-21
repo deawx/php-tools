@@ -35,6 +35,7 @@ class EncryptTools
      * aes 加密模型
      */
     const MODE_AES_ECB = 'ECB';
+
     /**
      * aes 加密模型
      */
@@ -64,7 +65,6 @@ class EncryptTools
         }
         return $bodyRet;
     }
-
 
     /**
      * 解密
