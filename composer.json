@@ -15,7 +15,8 @@
     "php": ">=7.1",
     "ext-json": "*",
     "ext-curl": "*",
-    "ext-xml": "*"
+    "ext-xml": "*",
+    "ext-gd": "*"
   },
   "autoload": {
     "psr-4": {
