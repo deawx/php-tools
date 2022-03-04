@@ -118,7 +118,7 @@ class EncryptTools
     }
 
     /**
-     * Brief: 生成签名
+     * Brief: 签名算法(摘要算法)
      * Author: Shershon(tanxiaoshan@weimiao.cn)
      * DateTime: 2021/12/28 上午9:15
      */
