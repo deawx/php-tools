@@ -35,7 +35,6 @@ class S3Des
         return $text . str_repeat(chr($pad), $pad);
     }
 
-
     /**
      * @description: 解密
      * @param $key
